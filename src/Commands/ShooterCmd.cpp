@@ -29,11 +29,18 @@ void ShooterCmd::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void ShooterCmd::Execute() {
+
+	Robot::shooter->PrintValues();
+
 	if(Robot::oi->getGamePad()->GetRawButton(1)){
-		Robot::shooter->SetSpeed(500);
+		Robot::shooter->SetSpeed(325);
 	}
 	if (Robot::oi->getGamePad()->GetRawButton(3)){
 		Robot::shooter->SetSpeed(0);
+	}
+
+	if (Robot::oi->getGamePad()->GetRawButton(4)) {
+		Robot::shooter->SetSpeed(200);
 	}
 }
 
