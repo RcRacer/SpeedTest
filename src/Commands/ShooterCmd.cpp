@@ -33,15 +33,25 @@ void ShooterCmd::Execute() {
 	Robot::shooter->PrintValues();
 
 	if(Robot::oi->getGamePad()->GetRawButton(1)){
-		Robot::shooter->SetSpeed(325);
+		Robot::shooter->SetSpeed(435);
 	}
+
 	if (Robot::oi->getGamePad()->GetRawButton(3)){
 		Robot::shooter->SetSpeed(0);
 	}
 
 	if (Robot::oi->getGamePad()->GetRawButton(4)) {
-		Robot::shooter->SetSpeed(200);
+		Robot::shooter->SetSpeed(185);
 	}
+
+	if (Robot::oi->getGamePad()->GetRawButton(6)) {
+			Robot::shooter->SetSolen(true);
+	}
+
+	if (Robot::oi->getGamePad()->GetRawButton(8)) {
+			Robot::shooter->SetSolen(false);
+	}
+
 }
 
 // Make this return true when this Command no longer needs to run execute()
