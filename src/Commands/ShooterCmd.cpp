@@ -33,7 +33,7 @@ void ShooterCmd::Execute() {
 	Robot::shooter->PrintValues();
 
 	if(Robot::oi->getGamePad()->GetRawButton(1)){
-		Robot::shooter->SetSpeed(435);
+		Robot::shooter->SetSpeed(500);   //500
 	}
 
 	if (Robot::oi->getGamePad()->GetRawButton(3)){
@@ -41,7 +41,7 @@ void ShooterCmd::Execute() {
 	}
 
 	if (Robot::oi->getGamePad()->GetRawButton(4)) {
-		Robot::shooter->SetSpeed(185);
+		Robot::shooter->SetSpeed(270); //270
 	}
 
 	if (Robot::oi->getGamePad()->GetRawButton(6)) {
