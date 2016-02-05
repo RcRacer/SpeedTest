@@ -101,3 +101,8 @@ void Shooter::PrintValues() {
 void Shooter::SetSolen(bool value) {
 	highSolenoid->Set(value);
 }
+
+int Shooter::GetMotorVel(){
+	return shooterMotorL->GetEncVel();
+}
+
