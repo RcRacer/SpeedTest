@@ -53,14 +53,19 @@ void ShooterCmd::Execute() {
 	//LowGoal
 	if (Robot::oi->getGamePad()->GetRawButton(4)) {
 		Robot::shooter->SetSpeed(270);   //270
-		do{
+		/*do{
 			Robot::shooter->PrintValues();
 			Wait(.1);
-		}while (Robot::shooter->GetMotorVel()<225);
+		}while (Robot::shooter->GetMotorVel()<450);
+		 */
+		Wait(2.5);
+		Robot::shooter->PrintValues();
 		Robot::shooter->SetSolen(true);
 		Wait(.5);
-		Robot::shooter->SetSpeed(0);
+		Robot::shooter->PrintValues();
 		Robot::shooter->SetSolen(false);
+		Robot::shooter->PrintValues();
+		Robot::shooter->SetSpeed(0);
 	}
 }
 
