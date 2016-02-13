@@ -106,3 +106,6 @@ int Shooter::GetMotorVel(){
 	return shooterMotorL->GetEncVel();
 }
 
+std::shared_ptr<Solenoid> Shooter::GetHighSolenoid(){
+	return highSolenoid;
+}

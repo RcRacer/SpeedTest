@@ -32,15 +32,15 @@ void ShooterCmd::Execute() {
 
 	Robot::shooter->PrintValues();
 
-	//High Goal
+	//High Goal - Button X
 	if(Robot::oi->getGamePad()->GetRawButton(1)){
-		Robot::shooter->SetSpeed(500);   //500
+		Robot::shooter->SetSpeed(375);   //375
 		/*do{
 			Robot::shooter->PrintValues();
 			Wait(.1);
 		}while (Robot::shooter->GetMotorVel()<450);
 		*/
-		Wait(2.5);
+		Wait(1.25);  //1.25
 		Robot::shooter->PrintValues();
 		Robot::shooter->SetSolen(true);
 		Wait(.5);
@@ -48,17 +48,31 @@ void ShooterCmd::Execute() {
 		Robot::shooter->SetSolen(false);
 		Robot::shooter->PrintValues();
 		Robot::shooter->SetSpeed(0);
+
+	}
+	//Solenoid - Button A
+	if(Robot::oi->getGamePad()->GetRawButton(2) && !Robot::shooter->GetHighSolenoid()->Get())
+	{
+		Wait(.5);
+		Robot::shooter->SetSolen(true);
+	}
+	else if (Robot::oi->getGamePad()->GetRawButton(2) && Robot::shooter->GetHighSolenoid()->Get())
+	{
+		Wait(.5);
+		Robot::shooter->SetSolen(false);
 	}
 
-	//LowGoal
+
+
+	//LowGoal - Button Y
 	if (Robot::oi->getGamePad()->GetRawButton(4)) {
-		Robot::shooter->SetSpeed(270);   //270
+		Robot::shooter->SetSpeed(244);   //244
 		/*do{
 			Robot::shooter->PrintValues();
 			Wait(.1);
 		}while (Robot::shooter->GetMotorVel()<450);
 		 */
-		Wait(2.5);
+		Wait(1);    //1
 		Robot::shooter->PrintValues();
 		Robot::shooter->SetSolen(true);
 		Wait(.5);
